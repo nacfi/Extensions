@@ -1,0 +1,83 @@
+{
+  "plugin_type": "widget",
+  "name": "Button",
+  "edit_page_url": "https://de.triumph.com/bhs/mit-buegel?prefn1=size&prefv1=75C",
+  "form_schema": [
+    {
+      "options": null,
+      "label": "Button 1 Text",
+      "default_value": "Button 1 Text",
+      "name": "button_1_text",
+      "field_type": "text"
+    },
+    {
+      "options": null,
+      "label": "Button 1 Link",
+      "default_value": "https://de.triumph.com/series/smart-collection",
+      "name": "button_1_link",
+      "field_type": "text"
+    },
+    {
+      "options": {
+        "mode": "hex"
+      },
+      "label": "Button 1 Color",
+      "default_value": "#d5c1a2",
+      "name": "button_1_color",
+      "field_type": "color"
+    },
+    {
+      "options": null,
+      "label": "Button 2 Text",
+      "default_value": "Button 2 Text",
+      "name": "button_2_text",
+      "field_type": "text"
+    },
+    {
+      "options": null,
+      "label": "Button 2 Link",
+      "default_value": "https://de.triumph.com/series/smart-collection",
+      "name": "button_2_link",
+      "field_type": "text"
+    },
+    {
+      "options": {
+        "mode": "hex"
+      },
+      "label": "Button 2 Color",
+      "default_value": "#d5c1a2",
+      "name": "button_2_color",
+      "field_type": "color"
+    },
+    {
+      "options": null,
+      "label": "Button 3 Text",
+      "default_value": "Button 3 Text",
+      "name": "button_3_text",
+      "field_type": "text"
+    },
+    {
+      "options": null,
+      "label": "Button 3 Link",
+      "default_value": "https://de.triumph.com/series/smart-collection",
+      "name": "button_3_link",
+      "field_type": "text"
+    },
+    {
+      "options": {
+        "mode": "hex"
+      },
+      "label": "Button 3 Color",
+      "default_value": "#d5c1a2",
+      "name": "button_3_color",
+      "field_type": "color"
+    }
+  ],
+  "description": "Inject three buttons into the page",
+  "options": {
+    "html": "<div class=\"button-container\">\n  <button type=\"button\" class=\"button button--small button--primary js-pdComponentClick js-link\" style=\"background-color: {{extension.button_1_color}}\" data-link=\"{{extension.button_1_link}}\">\n    <span class=\"button__text\">{{extension.button_1_text}}</span>\n  </button>\n  <button type=\"button\" class=\"button button--small button--primary js-pdComponentClick js-link\" style=\"background-color: {{extension.button_2_color}}\" data-link=\"{{extension.button_2_link}}\">\n    <span class=\"button__text\">{{extension.button_2_text}}</span>\n  </button>\n  <button type=\"button\" class=\"button button--small button--primary js-pdComponentClick js-link\" style=\"background-color: {{extension.button_3_color}}\" data-link=\"{{extension.button_3_link}}\">\n    <span class=\"button__text\">{{extension.button_3_text}}</span>\n  </button>\n</div>",
+    "css": ".button-container {\n  display: flex;\n  justify-content: center;\n  margin-top: 20px;\n}\n\n.button {\n  color: #242424;\n  padding: 5px 10px;\n  text-decoration: none;\n  cursor: pointer;\n  margin: 0 5px;\n}\n\n.button span {\n  text-decoration: none;\n  color: #242424;\n}\n",
+    "apply_js": "var utils = window.optimizely.get('utils');\n\nutils.waitForElement('#main > div.container.mb-5 > div > div.text--medium-book-rs.seoText.js-seoText.seoText--aboveGrid').then(function(element){\n  var html = widget.$html;\n\telement.insertAdjacentHTML('afterend',html);\n});\n",
+    "undo_js": "var extensionHTML = document.querySelector('.button-container');\nif(extensionHTML) extensionHTML.remove();"
+  }
+}
